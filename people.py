@@ -17,8 +17,6 @@ KEEPSAKE_GAMES: dict[UserID, UserName] = {
     209049051474165761: "meatmanalfons",
     240882268313223169: "oskmos",
     476695441849974785: ".coulianos",
-
-    636265207185801227: "lars"
 }
 
 MODERATORS: dict[UserID, UserName] = {

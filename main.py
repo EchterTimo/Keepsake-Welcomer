@@ -13,7 +13,7 @@ from people import is_keepsake_employee
 
 load_dotenv()
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 ROLE_TO_GIVE = getenv("ROLE_TO_GIVE")
 CHANNEL_TO_ANNOUNCE = getenv("CHANNEL_TO_ANNOUNCE")
 
