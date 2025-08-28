@@ -1,4 +1,4 @@
-import os
+from os import getenv
 from dotenv import load_dotenv
 from interactions.api.events import MemberAdd
 from interactions import (
@@ -13,9 +13,9 @@ from people import is_keepsake_employee
 
 load_dotenv()
 
-__version__ = "1.0.1"
-ROLE_TO_GIVE = 1380572183998369903
-CHANNEL_TO_ANNOUNCE = 1379893310553854014
+__version__ = "1.0.2"
+ROLE_TO_GIVE = getenv("ROLE_TO_GIVE")
+CHANNEL_TO_ANNOUNCE = getenv("CHANNEL_TO_ANNOUNCE")
 
 client = Client(
     activity=Activity(
@@ -30,7 +30,7 @@ client = Client(
         default=True,
         guild_members=True
     ),
-    token=os.getenv("DISCORD_TOKEN")
+    token=getenv("DISCORD_TOKEN")
 )
 
 
