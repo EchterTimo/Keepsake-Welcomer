@@ -6,13 +6,14 @@ from interactions import (
     Intents,
     listen,
     Activity,
-    ActivityType
+    ActivityType,
+    AllowedMentions
 )
 from people import is_keepsake_employee
 
 load_dotenv()
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 ROLE_TO_GIVE = 1380572183998369903
 CHANNEL_TO_ANNOUNCE = 1379893310553854014
 
@@ -37,9 +38,12 @@ client = Client(
 async def on_member_add(event: MemberAdd):
     member_id = event.member.id
     if is_keepsake_employee(member_id):
-        await event.member.add_role(ROLE_TO_GIVE)
+        await event.member.add_role(ROLE_TO_GIVE, reason="the user is a Keepsake Games employee")
         channel = client.get_channel(CHANNEL_TO_ANNOUNCE)
-        await channel.send(f":saluting_face: Keepsake Games Employee <@{member_id}> has joined the server and was given the role <@&{ROLE_TO_GIVE}>!")
+        await channel.send(
+            content=f":saluting_face: Keepsake Games Employee <@{member_id}> has joined the server and was given the role <@&{ROLE_TO_GIVE}>!",
+            allowed_mentions=AllowedMentions(users=[member_id])
+        )
 
 if __name__ == '__main__':
     print("Running bot with version", __version__)
