@@ -18,11 +18,6 @@ ROLE_TO_GIVE = getenv("ROLE_TO_GIVE")
 CHANNEL_TO_ANNOUNCE = getenv("CHANNEL_TO_ANNOUNCE")
 
 client = Client(
-    activity=Activity(
-        name="for Keepsake Games Employees",
-        state=f"v{__version__}",
-        type=ActivityType.WATCHING
-    ),
     delete_unused_application_cmds=False,
     disable_dm_commands=True,
     send_command_tracebacks=False,  # todo: remove in prod
